@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class BinarySearch implements SearchAlgorithm {
 
     @Override
@@ -24,11 +26,13 @@ public class BinarySearch implements SearchAlgorithm {
 
         if (T[L] == x) {
             return L;
-        } else return -1;
+        } else {
+            System.out.println("element " + x + " not found!");
+            return -1;
+        }
     }
 
-    @Override
-    public int search2(int[] T, int x) {
+    public int search_alt(int[] T, int x) {
 
         int L = 0, c, P = T.length;
         if (T.length == 0) {
@@ -49,30 +53,33 @@ public class BinarySearch implements SearchAlgorithm {
 
         if (T[L] == x) {
             return L;
-        } else return -1;
+        } else {
+            System.out.println("element " + x + " not found!");
+            return -1;
+        }
     }
 
     public static void main(String[] args) {
 
-        int size = 30;
+        int size = 60;
         int[] exTable = new int[size];
         for (int i = 0; i < size; i++) {
-            exTable[i] = i / 8;
+            exTable[i] = i / 4;
         }
+
+        //System.out.println(Arrays.toString(exTable));
 
         int[] exTable2 = {0, 1, 1, 2, 5, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9};
 
         BinarySearch binarySearch = new BinarySearch();
-        binarySearch.search(exTable, 5);
+
         int search = 3;
-        int index = binarySearch.search(exTable2, search);
-        System.out.println(index);
-        //int index = binarySearch.search(exTable, search);
+        int index = binarySearch.search(exTable, search);
         if (index > -1) System.out.println(index + " " + exTable[index]);
-        else System.out.println("Element: " + search + " not found!");
-        index = binarySearch.search2(exTable, search);
+        index = binarySearch.search_alt(exTable, search);
         if (index > -1) System.out.println(index + " " + exTable[index]);
-        else System.out.println("Element: " + search + " not found!");
+        //System.exit(0);
+        /*if (index > -1) System.out.println(index + " " + exTable[index]);
         for(int i = 0; i < 20; i++) {
             index = binarySearch.search(exTable, i);
             if (index > -1) {
@@ -80,6 +87,6 @@ public class BinarySearch implements SearchAlgorithm {
             } else {
                 System.out.println("element " + i + " not found...");
             }
-        }
+        }*/
     }
 }

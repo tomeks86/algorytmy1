@@ -63,66 +63,15 @@ public class BubbleSort implements SortingAlgorithm {
         return compNum;
     }
 
-    public int[] countingSort(int[] table) {
-
-        int[] counts = new int[10];
-        int[] sums = new int[10];
-        int[] sorted = new int[table.length];
-
-        System.out.println(Arrays.toString(table));
-
-        for (int i = 0; i < table.length; i++) {
-            counts[table[i]]++;
-        }
-
-        sums[0] = counts[0];
-        for (int i = 1; i < 10; i++) {
-            sums[i] = sums[i-1] + counts[i];
-        }
-
-        //for (int i = 0; i < 10; i++) {
-        //    System.out.println(i + " " + counts[i] + " " + sums[i]);
-        //}
-
-        System.out.println(Arrays.toString(counts));
-        System.out.println(Arrays.toString(sums));
-
-        for (int i = table.length - 1; i > -1 ; i--) {
-            sorted[sums[table[i]] - 1] = table[i];
-            sums[table[i]]--;
-            System.out.println(table[i] + " " + (sums[table[i]] - 1));
-        }
-
-        return sorted;
-    }
-
     public static void main(String[] args) {
 
         BubbleSort bubbleSort = new BubbleSort();
 
-        /*int[] unsorted = {1, 6, -5, 6, 3, 6, 32, 65, -32};
+        int[] unsorted = {1, 6, -5, 6, 3, 6, 32, 65, -32};
 
         System.out.println(unsorted[0] + " " + unsorted[1]);
         bubbleSort.swap(unsorted, 0, 1);
-        System.out.println(unsorted[0] + " " + unsorted[1]);*/
-
-        int size = 30;
-        Person[] people = new Person[size];
-        for (int i = 0; i < size; i++) {
-            people[i] = new Person();
-        }
-        people[0].v = 2;
-        people[0].name = "Franek";
-        people[1].v = 1;
-        people[1].name = "Franek";
-        people[2].v = 2;
-        people[2].name = "Josif";
-        people[3].v = 1;
-        people[3].name = "Xavier";
-
-        int[] numbers = {4, 3, 4, 2, 4, 7, 1, 6, 3, 5, 5, 2};
-        int[] sorted = bubbleSort.countingSort(numbers);
-        System.out.println(Arrays.toString(sorted));
+        System.out.println(unsorted[0] + " " + unsorted[1]);
 
     }
 }
