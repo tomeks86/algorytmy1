@@ -7,11 +7,10 @@ public class Math {
             System.out.println("negative numbers not implemented!");
             return -1;
         } else {
-            double xn = r, xnp1 = .5 * (r / xn + xn), tmp;
+            double xn = r, xnp1 = .5 * (r / xn + xn);
             while ((xn - xnp1) > e) {
-                tmp = xnp1;
+                xn = xnp1;
                 xnp1 = .5 * (r / xnp1 + xnp1);
-                xn = tmp;
             }
             return xnp1;
         }
@@ -19,7 +18,9 @@ public class Math {
 
     public static void main(String[] args) {
 
-        System.out.println(sqrt(2,1.e-1));
+        System.out.println(sqrt(2,1.e-6));
+        System.out.println(sqrt(-0.002,1.e-3));
+        System.out.println(sqrt(2000,1.e-3));
         //System.out.println(sqrt(2,1.e-1) - sqrt(2,1e-4));
     }
 }
