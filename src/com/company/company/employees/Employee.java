@@ -33,6 +33,6 @@ public abstract class Employee implements Emailable {
     }
 
     public double calculateNetSalary() {
-        return getGrossSalary() / (1. + getTaxRate()/100.);
+        return getGrossSalary() / (1. + getTaxRate() / 100.);
     }
 }
