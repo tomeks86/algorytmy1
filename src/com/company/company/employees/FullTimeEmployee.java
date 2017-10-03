@@ -17,4 +17,9 @@ public class FullTimeEmployee extends Employee {
         return (getGrossSalary() - 1000) / (1. + getTaxRate() / 100.);  //1000 from brutto salary to insurance
         //return super.calculateNetSalary();
     }
+
+    @Override
+    public String toString() {
+        return "full time employee";
+    }
 }

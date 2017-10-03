@@ -1,5 +1,7 @@
 package com.company.company.employees;
 
-public interface Emailable {
+import java.io.Serializable;
+
+public interface Emailable extends Serializable {
     public String getEmail();
 }
